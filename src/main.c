@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
 #include <driver/gpio.h>
 #include "device.h"
 #include "gpio_arduino.h"
 
 void app_main() {
-
     gpio_pinMode(LED_RED, OUTPUT);
     gpio_pinMode(LED_GREEN, OUTPUT);
     while (1)
