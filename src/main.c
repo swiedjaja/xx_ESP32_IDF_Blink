@@ -2,19 +2,17 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <driver/gpio.h>
-#include "device.h"
-#include "gpio_arduino.h"
-
+#define LED_BUILTIN 33
 void app_main() {
-    gpio_pinMode(LED_RED, OUTPUT);
-    gpio_pinMode(LED_GREEN, OUTPUT);
+    gpio_pad_select_gpio(LED_BUILTIN);
+    gpio_set_direction(LED_BUILTIN, GPIO_MODE_OUTPUT);    
     while (1)
     {
-        gpio_set_level(LED_RED, LED_ON);
+        gpio_set_level(LED_BUILTIN, 0);
         printf("Hello World\n");
         fflush(stdout);
         vTaskDelay(100/portTICK_RATE_MS);
-        gpio_set_level(LED_RED, LED_OFF);
+        gpio_set_level(LED_BUILTIN, 1);
         vTaskDelay(1000/portTICK_RATE_MS);
     }
 }
