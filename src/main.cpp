@@ -9,7 +9,7 @@ extern "C" {
 }
 
 void app_main() {
-    gpio_pad_select_gpio(LED_BUILTIN);
+    // gpio_pad_select_gpio(LED_BUILTIN);
     gpio_set_direction(LED_BUILTIN, GPIO_MODE_OUTPUT);    
     while (1)
     {
