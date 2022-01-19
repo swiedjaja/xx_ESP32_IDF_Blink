@@ -2,7 +2,12 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <driver/gpio.h>
-#define LED_BUILTIN 33
+#define LED_BUILTIN GPIO_NUM_33
+
+extern "C" {
+    void app_main();
+}
+
 void app_main() {
     gpio_pad_select_gpio(LED_BUILTIN);
     gpio_set_direction(LED_BUILTIN, GPIO_MODE_OUTPUT);    
